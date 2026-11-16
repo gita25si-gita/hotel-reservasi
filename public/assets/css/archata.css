@@ -1,0 +1,188 @@
+/* ===== Tema Hotel Archata (hijau tua + emas) =====
+   Dimuat SETELAH style.css bawaan template supaya menimpa warna oranye. */
+
+:root {
+    --primary: #c9a45c;
+    --dark: #14322b;
+    --light: #f6f1e7;
+    --hijau: #14322b;
+    --hijau-gelap: #0e2520;
+    --emas: #c9a45c;
+    --krem: #f6f1e7;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    background: var(--krem);
+    color: #3b4a45;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+
+.container-xxl.bg-white { background-color: var(--krem) !important; }
+
+/* Warna utama */
+.bg-dark { background-color: var(--hijau) !important; }
+.text-primary { color: var(--emas) !important; }
+.bg-primary { background-color: var(--emas) !important; }
+.border-primary { border-color: var(--emas) !important; }
+
+.btn-primary {
+    background-color: var(--emas);
+    border-color: var(--emas);
+    color: #fff;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #b38d46;
+    border-color: #b38d46;
+    color: #fff;
+}
+.btn-light { letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link { font-family: 'Jost', sans-serif; letter-spacing: .06em; }
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active { color: var(--emas) !important; }
+
+/* Judul kecil bergaris (PILIHAN KAMAR, FASILITAS) */
+.label-archata {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--emas);
+}
+
+/* Hero */
+.hero-archata {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.hero-archata h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: #fff;
+}
+.hero-archata h1 em { color: var(--emas); font-style: italic; }
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 50px;
+    padding: .35rem .9rem;
+    font-size: .8rem;
+    color: #fff;
+}
+
+/* Kartu pencarian di hero */
+.search-card {
+    background: rgba(14, 37, 32, .55);
+    border: 1px solid rgba(201, 164, 92, .35);
+    padding: 1.6rem;
+}
+.search-card .form-control {
+    border-radius: 0;
+    border: 0;
+    padding: .7rem .9rem;
+    font-size: .9rem;
+}
+.search-card label {
+    color: var(--emas);
+    font-size: .7rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+    display: block;
+}
+
+/* Bagian kamar & fasilitas */
+.section-krem { background: var(--krem); }
+.section-krem-gelap { background: #efe8d8; }
+
+.kartu-archata {
+    background: #fff;
+    border: 1px solid #e6dfce;
+    box-shadow: 0 6px 18px rgba(20, 50, 43, .06);
+    height: 100%;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.kartu-archata:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(20, 50, 43, .12);
+}
+.kartu-archata img { width: 100%; height: 190px; object-fit: cover; }
+.kartu-archata .tipe {
+    font-size: .68rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--emas);
+    font-weight: 600;
+}
+.kartu-archata h5 { font-size: 1.5rem; color: var(--hijau); margin: .3rem 0 .5rem; }
+.kartu-archata .harga { color: var(--hijau); font-weight: 600; }
+.kartu-archata .detail {
+    color: var(--emas);
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer .btn.btn-link { color: rgba(255, 255, 255, .75); }
+.footer .btn.btn-link:hover { color: var(--emas); }
+.footer .bg-primary { background-color: var(--emas) !important; }
+
+
+/* ===== Halaman Kamar & Booking ===== */
+
+/* Header halaman (Kamar / Pesan Kamar): lapisan hijau tua, bukan biru tua */
+.page-header-inner { background: rgba(14, 37, 32, .78) !important; }
+.page-header h1 { font-family: 'Cormorant Garamond', serif; }
+.breadcrumb-item a { color: var(--emas); }
+.breadcrumb-item + .breadcrumb-item::before { color: var(--emas) !important; }
+
+/* Kartu kamar di halaman Kamar */
+.room-item {
+    background: #fff;
+    border: 1px solid #e6dfce;
+}
+.room-item h5 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--hijau); }
+.btn-dark {
+    background-color: var(--hijau);
+    border-color: var(--hijau);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.btn-dark:hover { background-color: var(--hijau-gelap); border-color: var(--hijau-gelap); }
+
+/* Form booking */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--emas);
+    box-shadow: 0 0 0 .2rem rgba(201, 164, 92, .25);
+}
+.form-floating > label { color: #6b7b76; }
+.alert-success {
+    background: #e9f1ec;
+    border-color: #b9d3c4;
+    color: var(--hijau);
+}
+
+/* Tombol kembali ke atas & tombol sosial */
+.back-to-top { background-color: var(--emas); border-color: var(--emas); }
+.btn-square.btn-primary,
+.btn-social:hover { background-color: var(--emas); border-color: var(--emas); }

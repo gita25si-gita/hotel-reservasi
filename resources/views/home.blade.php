@@ -9,13 +9,13 @@
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="{{ asset('assets/img/carousel-1.jpg') }}" alt="Image">
+                <img class="w-100" src="{{ asset('assets/img/foto latar.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Hotel Archata</h6>
                         <h1 class="display-3 text-white mb-4 animated slideInDown">Temukan Hotel Mewah Pilihan Anda</h1>
-                        <a href="#kamar" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lihat Kamar</a>
-                        <a href="#booking" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Pesan Kamar</a>
+                        <a href="{{ route('kamar') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lihat Kamar</a>
+                        <a href="{{ route('booking') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Pesan Kamar</a>
                     </div>
                 </div>
             </div>
@@ -25,8 +25,8 @@
                     <div class="p-3" style="max-width: 700px;">
                         <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Hotel Archata</h6>
                         <h1 class="display-3 text-white mb-4 animated slideInDown">Nyaman, Aman, dan Profesional</h1>
-                        <a href="#kamar" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lihat Kamar</a>
-                        <a href="#booking" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Pesan Kamar</a>
+                        <a href="{{ route('kamar') }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lihat Kamar</a>
+                        <a href="{{ route('booking') }}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Pesan Kamar</a>
                     </div>
                 </div>
             </div>
@@ -48,8 +48,7 @@
 <div id="booking" class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
         <div class="bg-white shadow" style="padding: 35px;">
-            {{-- Nanti action diarahkan ke controller reservasi --}}
-            <form action="#" method="GET">
+            <form action="{{ route('booking') }}" method="GET">
                 <div class="row g-2">
                     <div class="col-md-10">
                         <div class="row g-2">
@@ -163,12 +162,12 @@
             <h1 class="mb-5">Jelajahi <span class="text-primary text-uppercase">Kamar</span> Kami</h1>
         </div>
         <div class="row g-4">
-            {{-- Data sementara (statis). Nanti diganti @foreach($rooms as $room) dari database --}}
+            {{-- Data sementara (statis). Nanti diganti data dari database --}}
             @php
                 $rooms = [
-                    ['img' => 'room-1.jpg', 'nama' => 'Junior Suite',    'harga' => 350000, 'delay' => '0.1s'],
-                    ['img' => 'room-2.jpg', 'nama' => 'Executive Suite', 'harga' => 500000, 'delay' => '0.3s'],
-                    ['img' => 'room-3.jpg', 'nama' => 'Super Deluxe',    'harga' => 750000, 'delay' => '0.6s'],
+                    ['img' => 'room-1.jpg', 'nama' => 'Standard', 'harga' => 850000,  'delay' => '0.1s'],
+                    ['img' => 'room-2.jpg', 'nama' => 'Deluxe',   'harga' => 1250000, 'delay' => '0.3s'],
+                    ['img' => 'room-3.jpg', 'nama' => 'Suite',    'harga' => 2800000, 'delay' => '0.6s'],
                 ];
             @endphp
 
@@ -195,8 +194,8 @@
                         </div>
                         <p class="text-body mb-3">Kamar nyaman dengan fasilitas lengkap untuk menunjang kenyamanan menginap Anda.</p>
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="#">Detail</a>
-                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="#booking">Pesan Sekarang</a>
+                            <a class="btn btn-sm btn-primary rounded py-2 px-4" href="{{ route('kamar') }}">Detail</a>
+                            <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{{ route('booking', ['kamar' => $room['nama']]) }}">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>

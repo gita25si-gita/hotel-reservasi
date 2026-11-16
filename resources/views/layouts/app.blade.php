@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -21,6 +22,7 @@
 
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/archata.css') }}" rel="stylesheet">
 
     @stack('styles')
 </head>
@@ -75,12 +77,11 @@
                             <div class="navbar-nav mr-auto py-0">
                                 <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
                                 <a href="#tentang" class="nav-item nav-link">Tentang</a>
-                                <a href="#kamar" class="nav-item nav-link">Kamar</a>
+                                <a href="{{ route('kamar') }}" class="nav-item nav-link {{ request()->routeIs('kamar') ? 'active' : '' }}">Kamar</a>
                                 <a href="#layanan" class="nav-item nav-link">Layanan</a>
                                 <a href="#kontak" class="nav-item nav-link">Kontak</a>
                             </div>
-                            <a href="#booking" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Pesan Kamar<i class="fa fa-arrow-right ms-3"></i></a>
-                        </div>
+                         <a href="{{ route('booking') }}" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Pesan Kamar<i class="fa fa-arrow-right ms-3"></i></a>
                     </nav>
                 </div>
             </div>
