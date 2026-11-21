@@ -1,32 +1,21 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
-
 // Halaman Utama & Navigasi
-Route::view('/', 'home')->name('home');
-Route::view('/kamar', 'pages.room')->name('kamar');
-Route::view('/booking', 'pages.booking')->name('booking');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/kamar', [HomeController::class, 'kamar'])->name('kamar');
 
-// Proses Kirim / Simpan Booking (Sementara menggunakan Closure)
-Route::post('/booking', function (Request $request) {
-    $request->validate([
-        'nama_tamu' => 'required|string|max:100',
-        'email'     => 'required|email',
-        'no_hp'     => 'required|string|max:20',
-        'check_in'  => 'required|date|after_or_equal:today',
-        'check_out' => 'required|date|after:check_in',
-    ]);
+// Alur Reservasi sesuai Proposal Hotel Archata
+Route::get('/booking', [HomeController::class, 'booking'])->name('booking');
+Route::post('/booking', [HomeController::class, 'storeBooking'])->name('booking.store');
 
-    return redirect()->route('booking')->with('sukses', 'Pesanan Anda berhasil dikirim!');
-})->name('booking.store');
+Route::get('/booking/pembayaran', [HomeController::class, 'pembayaran'])->name('booking.pembayaran');
+Route::post('/booking/pembayaran', [HomeController::class, 'storePembayaran'])->name('booking.pembayaran.store');
+
+Route::get('/booking/riwayat', [HomeController::class, 'riwayatBooking'])->name('booking.riwayat');
 
 // Route Autentikasi (Login & Logout)
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
